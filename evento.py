@@ -1,6 +1,6 @@
 """Archivo encargado de la clase Evento"""
-from Deportes import Deporte
-from Mercado import Mercado
+from deportes import Deporte
+from mercado import Mercado
 
 class Evento:
     """Clase que representa un evento deportivo"""
@@ -43,7 +43,7 @@ class Evento:
     @estado.setter
     def estado(self, nuevo_estado:str):
         if nuevo_estado not in ["programado", "en juego", "finalizado"]:
-            raise ValueError("El estado debe ser 'programado', 'en juego' o 'finalizado'")
+            return "El estado debe ser 'programado', 'en juego' o 'finalizado'"
         self._estado = nuevo_estado
 
     @property
@@ -53,7 +53,7 @@ class Evento:
     @resultado.setter
     def resultado(self, nuevo_resultado: dict):
         if self._estado != "finalizado":
-            raise ValueError("Solo se puede modificar el resultado de un evento finalizado")
+            return "Solo se puede modificar el resultado de un evento finalizado"
         self._resultado = nuevo_resultado
 
     @property
