@@ -1,6 +1,6 @@
 """Implementacion clase Apuesta Combinada"""
 from apuesta import Apuesta
-from eventos import Evento
+from evento import Evento
 from billetera import Billetera
 
 class ApuestaCombinada(Apuesta):
@@ -20,26 +20,24 @@ class ApuestaCombinada(Apuesta):
         """Muestra la prediccion hecha en la apuesta"""
         return self._predicciones
 
-
     def calcular_resultado(self) -> float:
         """
         Calcula y retorna el valor del premio obtenido en caso de ganar un apuesta.
         Si el evento aun no ha finalizado o la apuesta no se cumplio retorna 0
         """
         cuota_total = 1
-
         for i, prediccion in enumerate(self.predicciones, 0):
             if prediccion not in self.eventos[i].mercado.opciones_apuestas.keys():
                 return 0
             if prediccion == self.eventos[i].resultado:
+                self._estado = "ganada"
                 cuota_total *= self.eventos[i].mercado.opciones_apuestas[prediccion]
             else:
+                self._estado = "perdida"
                 return 0
-
         return cuota_total * self._monto
-        
+
     def transferencia(self, billetera: Billetera) -> None:  
         """Registra el premio en el historia de la billetera y actualiza el saldo de la misma"""
-        billetera.agregar_movimiento("premios", self.calcular_resultado())
+        billetera.agregar_premio(self.calcular_resultado())
         billetera.actualizar_saldo(self.calcular_resultado())
-

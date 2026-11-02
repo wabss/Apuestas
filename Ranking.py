@@ -14,16 +14,13 @@ class Ranking:
                 cantidad1 = 0
                 for lista in self.clasificacion_usuarios[usuario2].billetera.movimientos.values():
                     cantidad1 = cantidad1 + len(lista)
-
                 cantidad2 = 0
                 for lista in self.clasificacion_usuarios[usuario2 + 1].billetera.movimientos.values():
                     cantidad2 = cantidad2 + len(lista)
-
                 if cantidad1 < cantidad2:
                     temporal = self.clasificacion_usuarios[usuario2]
                     self.clasificacion_usuarios[usuario2] = self.clasificacion_usuarios[usuario2 + 1]
                     self.clasificacion_usuarios[usuario2 + 1] = temporal
-
         texto = ""
         for usuario in self.clasificacion_usuarios:
             texto = texto + usuario.nombre + "\n"

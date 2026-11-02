@@ -2,7 +2,7 @@
 from apuesta_simple import ApuestaSimple
 from apuesta_combinada import ApuestaCombinada
 from billetera import Billetera
-from eventos import Evento
+from evento import Evento
 
 class Usuario:
     """Clase encargada de la creación de usuario y sus apuestas"""
@@ -34,15 +34,16 @@ class Usuario:
         billetera = Billetera(float(input("Cuanto saldo tienes: ")))
         if edad >= 18:
             return cls(nombre, edad, billetera)
-        else:
-            print("Menor\nDiddy va por ti")
-            return cls(nombre, edad, billetera)
+        raise ValueError("No se puede crear un usario menor de edad")
 
     def crear_apuesta(self, monto: float, eventos: list[Evento], predicciones: list[str]):
         """Crea una apuesta con las especificaciones dadas por el usuario"""
-        if len(eventos) == 1:
+        if len(eventos) == 0 or len(predicciones) == 0 or monto > self._billetera.saldo:
+            raise ValueError("No se puede crear una apuesta sin predicciones o eventos")
+        if len(eventos) == 1 and len(predicciones) == 1:
             self._billetera.actualizar_saldo(-monto)
+            self._billetera.agregar_apuesta(ApuestaSimple(monto, eventos[0], predicciones[0]))
             return ApuestaSimple(monto, eventos[0], predicciones[0])
-        else:
-            self._billetera.actualizar_saldo(-monto)
-            return ApuestaCombinada(monto, eventos, predicciones)
+        self._billetera.actualizar_saldo(-monto)
+        self._billetera.agregar_apuesta(ApuestaCombinada(monto, eventos, predicciones))
+        return ApuestaCombinada(monto, eventos, predicciones)

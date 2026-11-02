@@ -21,19 +21,19 @@ class Billetera:
         """Enseña los movimientos que ha realizado el Usuario con su billetera"""
         return self._movimientos
 
-    def agregar_movimiento(self, nuevo_movimiento: str, valor: float) -> None:
+    def agregar_premio(self, valor: float) -> bool:
         """Agrega un nuevo movimiento al historial de movimientos"""
-        if nuevo_movimiento in self._movimientos.keys():
-            self._movimientos[nuevo_movimiento].append(valor)
-        else:
-            print("Movimiento invalido")
+        if valor > 0:
+            self._movimientos["premios"].append(valor)
+            return True
+        return False
 
     @property
     def apuestas(self) -> list:
         """Enseña el historial de apuestas del usuario"""
         return self._apuestas
-    @apuestas.setter
-    def apuestas(self, nueva_apuesta) -> None:
+
+    def agregar_apuesta(self, nueva_apuesta) -> None:
         """Agrega una nueva apuesta creada en el historial de apuestas"""
         self._apuestas.append(nueva_apuesta)
 
@@ -41,15 +41,15 @@ class Billetera:
         """Aumenta el saldo al depositar un monto en la billetera"""
         if monto > 0:
             self._saldo += monto
-            self._movimientos += "deposito", monto
+            self._movimientos["depositos"].append(monto)
             return True
         return False
 
     def retiro(self, monto: float) -> bool:
         """Reduce el saldo al retirar un monto de la billetera"""
-        if monto < self._saldo:
+        if monto <= self._saldo:
             self._saldo -= monto
-            self._movimientos += "retiros", monto
+            self._movimientos["retiros"].append(monto)
             return True
         return False
 
