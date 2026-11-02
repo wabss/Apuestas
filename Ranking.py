@@ -1,5 +1,5 @@
 """Archivo encargado de la clase Ranking"""
-#from usuario import Usuario
+
 class Ranking:
     """Clase para ordenar usuarios y equipos"""
     def __init__(self) -> None:

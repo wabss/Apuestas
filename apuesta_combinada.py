@@ -5,7 +5,7 @@ from billetera import Billetera
 
 class ApuestaCombinada(Apuesta):
     """"Clase para apuestas combinadas"""
-    def __init__(self, monto: float, predicciones: list[str], eventos: list[Evento], estado: str="pendiente"):
+    def __init__(self, monto: float, eventos: list[Evento], predicciones: list[str], estado: str="pendiente"):
         super().__init__(monto, estado)
         self._predicciones = predicciones
         self._eventos = eventos
@@ -26,12 +26,12 @@ class ApuestaCombinada(Apuesta):
         Si el evento aun no ha finalizado o la apuesta no se cumplio retorna 0
         """
         cuota_total = 1
-        for i, prediccion in enumerate(self.predicciones, 0):
-            if prediccion not in self.eventos[i].mercado.opciones_apuestas.keys():
+        for i, prediccion in enumerate(self._predicciones, 0):
+            if prediccion not in self._eventos[i].mercado.opciones_apuestas.keys():
                 return 0
-            if prediccion == self.eventos[i].resultado:
+            if prediccion == self._eventos[i].resultado:
                 self._estado = "ganada"
-                cuota_total *= self.eventos[i].mercado.opciones_apuestas[prediccion]
+                cuota_total *= self._eventos[i].mercado.opciones_apuestas[prediccion]
             else:
                 self._estado = "perdida"
                 return 0
