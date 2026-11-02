@@ -1,39 +1,38 @@
-
-from Ranking import Ranking
-
-
+from ranking import Ranking
+from usuario import Usuario
+from deporte import Deporte
+from billetera import Billetera
 
 def probar_ranking():
     ranking = Ranking()
 
-    u1 = Usuario("Carlos")
-    u1.billetera.movimientos["deposito"] = [100, 50]
-    u1.billetera.movimientos["retiro"] = [30]
+    deporte_1 = Deporte("Futbol")
+    deporte_1.agregar_equipo("millos")
+    deporte_1.agregar_equipo("nacional")
+    deporte_1.agregar_equipo("deportivo cucuta")
 
-    u2 = Usuario("Ana")
-    u2.billetera.movimientos["deposito"] = [200, 100, 50]
-    u2.billetera.movimientos["apuesta"] = [20, 10]
+    u1 = Usuario("Carlos", 19, Billetera(12345.6))
+    u1.billetera.agregar_movimiento("depositos", 100)
+    u1.billetera.agregar_movimiento("premios", 100)
+    u1.billetera.agregar_movimiento("retiros", 30)
 
-    u3 = Usuario("Juan")
-    u3.billetera.movimientos["deposito"] = [80]
+    u2 = Usuario("Ana", 30, Billetera(4663635.6))
+    u2.billetera.agregar_movimiento("depositos", 200)
+    u2.billetera.agregar_movimiento("retiros", 100)
+    u2.billetera.agregar_movimiento("depositos", 50)
+
+    u3 = Usuario("Juan", 20, Billetera(3123123.6))
+    u3.billetera.agregar_movimiento("depositos", 80)
 
     ranking.clasificacion_usuarios.append(u1)
     ranking.clasificacion_usuarios.append(u2)
     ranking.clasificacion_usuarios.append(u3)
 
-    class Deporte:
-        def __init__(self):
-            self.equipos = {
-                "Real Madrid": 10,
-                "Barcelona": 7,
-                "Atletico": 4
-            }
-
-    deporte = Deporte()
-
     print("Ranking usuarios:")
     print(ranking.ordenar_usuarios())
 
     print("Ranking equipos:")
-    print(ranking.ordenar_equipos(deporte))
+    print(ranking.ordenar_equipos(deporte_1))
 
+
+probar_ranking()

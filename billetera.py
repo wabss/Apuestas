@@ -1,11 +1,10 @@
 """Archivo encargado de la Billetera"""
-from Apuesta import Apuesta
 
 class Billetera:
     """Clase Billetera perteneciente al usuario"""
     def __init__(self, saldo: float) -> None:
         self._saldo = saldo
-        self._movimientos = dict(depositos=[], retiros=[], premios=[])
+        self._movimientos = {"depositos": [], "retiros": [], "premios": []}
         self._apuestas = []
 
     @property
@@ -24,7 +23,7 @@ class Billetera:
 
     def agregar_movimiento(self, nuevo_movimiento: str, valor: float) -> None:
         """Agrega un nuevo movimiento al historial de movimientos"""
-        if nuevo_movimiento in self._movimientos.items():
+        if nuevo_movimiento in self._movimientos.keys():
             self._movimientos[nuevo_movimiento].append(valor)
         else:
             print("Movimiento invalido")

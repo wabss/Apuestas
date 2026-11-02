@@ -2,7 +2,7 @@
 from apuesta_simple import ApuestaSimple
 from billetera import Billetera
 from eventos import Evento
-# from ApuestaCombinada import ApuestaCombinada
+from apuesta_combinada import ApuestaCombinada
 
 class Usuario:
     """Clase encargada de la creación de usuario y sus apuestas"""
@@ -43,6 +43,6 @@ class Usuario:
         if len(eventos) == 1:
             self._billetera.actualizar_saldo(-monto)
             return ApuestaSimple(monto, eventos[0], predicciones[0])
-        # else:
-        #     self._billetera.actualizar_saldo(-monto)
-        #     return ApuestaCombinada(monto, eventos, predicciones)
+        else:
+            self._billetera.actualizar_saldo(-monto)
+            return ApuestaCombinada(monto, eventos, predicciones)

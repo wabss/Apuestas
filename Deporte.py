@@ -1,8 +1,8 @@
 """Código para la clase Deporte y su relación con Evento"""
-from eventos import Evento
+
 class Deporte:
     """Clase encargada de la creación de un Deporte y """
-    def __init__(self,nombre) -> None:
+    def __init__(self, nombre: str) -> None:
         """Inicializa un deporte con su nombre, lista de equipos y lista de eventos"""
         self._nombre = nombre
         self._equipos = {}

@@ -1,5 +1,5 @@
 """Implementacion clase ApuestaSimple"""
-from Apuesta import Apuesta
+from apuesta import Apuesta
 from eventos import Evento
 from billetera import Billetera
 

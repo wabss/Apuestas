@@ -48,6 +48,6 @@ class Ranking:
                     nombres[j + 1] = aux2
 
         texto = ""
-        for i in enumerate(nombres):
+        for i in range(len(nombres)):
             texto = texto + nombres[i] + " - " + str(veces[i]) + "\n"
         return texto
