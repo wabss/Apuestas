@@ -6,6 +6,6 @@ class Mercado:
         self._opciones_apuestas = opciones_apuestas
 
     @property
-    def opciones_apuestas(self):
+    def opciones_apuestas(self) -> dict:
         """Devuelve las opciones de apuestas y sus cuotas"""
         return self._opciones_apuestas

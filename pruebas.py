@@ -11,8 +11,6 @@ mercado_2 = Mercado({"+2 gol": 1.2})
 evento_1 = Evento("Futbol", "Millos", "Deportivo Cucuta", "12/11/2026", mercado_1, "finalizado", "+0.5 gol")
 evento_2 = Evento("Futbol", "waos", "waos-2", "12/11/2026", mercado_2, "finalizado", "+2 gol")
 
-
-
 usuario_1.billetera.apuestas = usuario_1.crear_apuesta(125000, [evento_1], ["+1.5 gol"])
 usuario_1.billetera.apuestas = usuario_1.crear_apuesta(3240, [evento_1], ["+0.5 gol"])
 

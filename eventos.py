@@ -14,22 +14,22 @@ class Evento:
         self._mercado = mercado
 
     @property
-    def deporte(self):
+    def deporte(self) -> Deporte:
         """Devuelve el deporte del evento"""
         return self._deporte
 
     @property
-    def equipo_1(self):
+    def equipo_1(self) -> str:
         """Devuelve el primer equipo del evento"""
         return self._equipo_1
 
     @property
-    def equipo_2(self):
+    def equipo_2(self) -> str:
         """Devuelve el segundo equipo del evento"""
         return self._equipo_2
 
     @property
-    def fecha(self):
+    def fecha(self) -> str:
         """Devuelve la fecha del evento"""
         return self._fecha
     @fecha.setter
@@ -37,7 +37,7 @@ class Evento:
         self._fecha = nueva_fecha
 
     @property
-    def estado(self):
+    def estado(self) -> str:
         """Devuelve el estado del evento"""
         return self._estado
     @estado.setter
@@ -47,7 +47,7 @@ class Evento:
         self._estado = nuevo_estado
 
     @property
-    def resultado(self):
+    def resultado(self) -> str:
         """Devuelve el resultado del evento"""
         return self._resultado
     @resultado.setter
@@ -57,6 +57,6 @@ class Evento:
         self._resultado = nuevo_resultado
 
     @property
-    def mercado(self):
+    def mercado(self) -> Mercado:
         """Devuelve el mercado asociado al evento"""
         return self._mercado

@@ -33,7 +33,7 @@ class Billetera:
         """Enseña el historial de apuestas del usuario"""
         return self._apuestas
     @apuestas.setter
-    def apuestas(self, nueva_apuesta: Apuesta) -> None:
+    def apuestas(self, nueva_apuesta) -> None:
         """Agrega una nueva apuesta creada en el historial de apuestas"""
         self._apuestas.append(nueva_apuesta)
 

@@ -1,8 +1,8 @@
 """Código para la clase Usuario y su relación con Billetera"""
 from apuesta_simple import ApuestaSimple
+from apuesta_combinada import ApuestaCombinada
 from billetera import Billetera
 from eventos import Evento
-from apuesta_combinada import ApuestaCombinada
 
 class Usuario:
     """Clase encargada de la creación de usuario y sus apuestas"""

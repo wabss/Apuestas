@@ -15,3 +15,13 @@ class Apuesta(ABC):
     @abstractmethod
     def transferencia(self, billetera: Billetera) -> bool:
         "Transfiere el dinero a la billetera del usuario"
+
+    @property
+    def estado(self) -> str:
+        """Muestra el estado de la apuesta"""
+        return self._estado
+
+    @property
+    def monto(self) -> float:
+        """Muestra el monto apostado"""
+        return self._monto

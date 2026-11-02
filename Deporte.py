@@ -28,7 +28,7 @@ class Deporte:
         self._equipos.update({nuevo_equipo: 0})
         return True
 
-    def agregar_evento(self, evento: Evento) -> bool:
+    def agregar_evento(self, evento) -> bool:
         """Agrega un evento a la lista de eventos del deporte.
         Devuelve True si se agrego o False si ya existia.
         """

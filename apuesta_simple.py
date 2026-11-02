@@ -10,6 +10,16 @@ class ApuestaSimple(Apuesta):
         self._evento = evento
         self._prediccion = prediccion
 
+    @property
+    def evento(self) -> Evento:
+        """Muestra el evento por el que se apuesta"""
+        return self._evento
+
+    @property
+    def prediccion(self) -> str:
+        """Muestra la prediccion hecha en la apuesta"""
+        return self.prediccion
+
     def calcular_resultado(self) -> float:
         """
         Calcula y retorna el valor del premio obtenido en caso de ganar un apuesta.

@@ -5,10 +5,21 @@ from billetera import Billetera
 
 class ApuestaCombinada(Apuesta):
     """"Clase para apuestas combinadas"""
-    def __init__(self, monto: float, predicciones: list, eventos: list[Evento], estado: str="pendiente"):
+    def __init__(self, monto: float, predicciones: list[str], eventos: list[Evento], estado: str="pendiente"):
         super().__init__(monto, estado)
-        self.predicciones = predicciones
-        self.eventos = eventos
+        self._predicciones = predicciones
+        self._eventos = eventos
+
+    @property
+    def eventos(self) -> list:
+        """Muestra el evento por el que se apuesta"""
+        return self._eventos
+
+    @property
+    def predicciones(self) -> list:
+        """Muestra la prediccion hecha en la apuesta"""
+        return self._predicciones
+
 
     def calcular_resultado(self) -> float:
         """
