@@ -1,4 +1,4 @@
-"""archivo encargado de la clase mercado"""
+"""Archivo encargado de la clase mercado"""
 class Mercado:
     """Clase que representa el mercado de apuestas, opciones de apuestas y sus cuotas"""
     def __init__(self, opciones_apuestas: dict):
