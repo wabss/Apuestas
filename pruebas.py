@@ -1,0 +1,1 @@
+"""Sección para probar que el sistema funciona"""
