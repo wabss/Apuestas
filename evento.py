@@ -1,7 +1,15 @@
 """Archivo encargado de la clase Evento"""
-from deportes import Deporte
 from mercado import Mercado
+class Deporte: #cambiar por la clase Deporte del archivo deporte.py
+    """Clase que representa un deporte"""
+    def __init__(self, nombre: str):
+        self._nombre = nombre
 
+    @property
+    def nombre(self):
+        """Devuelve el nombre del deporte"""
+        return self._nombre
+    
 class Evento:
     """Clase que representa un evento deportivo"""
     def __init__(self, deporte: Deporte, equipo_1: str, equipo_2: str, fecha: str, mercado: Mercado):
