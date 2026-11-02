@@ -1,6 +1,3 @@
 """Modulo principal"""
 
-def prueba():
-    print("Hola")
-
-prueba()
+print("hola mundo")
