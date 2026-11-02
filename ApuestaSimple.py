@@ -3,7 +3,7 @@ from Apuesta import Apuesta
 
 class ApuestaSimple(Apuesta):
     """"Clase para apuestas simples"""
-    def __init__(self, monto: float, estado: str, evento: Evento, prediccion: str):
+    def __init__(self, monto: float, evento: Evento, prediccion: str, estado: str="pendiente"):
         super().__init__(monto, estado)
         self._evento = evento
         self._prediccion = prediccion
