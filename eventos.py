@@ -1,5 +1,5 @@
 """Archivo encargado de la clase Evento"""
-from Deporte import Deporte
+from deporte import Deporte
 from mercado import Mercado
 
 class Evento:

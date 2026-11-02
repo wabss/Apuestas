@@ -1,5 +1,6 @@
 """Implementacion clase Apuestas"""
 from abc import ABC, abstractmethod
+from billetera import Billetera
 
 class Apuesta(ABC):
     "Clase abstracta para apuestas"
