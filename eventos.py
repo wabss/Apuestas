@@ -1,16 +1,16 @@
 """Archivo encargado de la clase Evento"""
-from Deportes import Deporte
-from Mercado import Mercado
+from Deporte import Deporte
+from mercado import Mercado
 
 class Evento:
     """Clase que representa un evento deportivo"""
-    def __init__(self, deporte: Deporte, equipo_1: str, equipo_2: str, fecha: str, mercado: Mercado):
+    def __init__(self, deporte: Deporte, equipo_1: str, equipo_2: str, fecha: str, mercado: Mercado, estado: str="programado", resultado: str=""):
         self._deporte = deporte
         self._equipo_1 = equipo_1
         self._equipo_2 = equipo_2
         self._fecha = fecha
-        self._estado = "programado"
-        self._resultado = {}
+        self._estado = estado
+        self._resultado = resultado
         self._mercado = mercado
 
     @property
@@ -49,9 +49,9 @@ class Evento:
     @property
     def resultado(self):
         """Devuelve el resultado del evento"""
-        return dict(self._resultado)
+        return self._resultado
     @resultado.setter
-    def resultado(self, nuevo_resultado: dict):
+    def resultado(self, nuevo_resultado: str):
         if self._estado != "finalizado":
             raise ValueError("Solo se puede modificar el resultado de un evento finalizado")
         self._resultado = nuevo_resultado
