@@ -1,16 +1,16 @@
 """Implementacion clase Apuestas"""
 from abc import ABC, abstractmethod
-from random import randint
 
 class Apuesta(ABC):
+    "Clase abstracta para apuestas"
     def __init__(self, monto: float, estado: str):
         self._monto = monto
         self._estado = estado
 
     @abstractmethod
     def calcular_resultado(self) -> str:
-        pass
+        "Calcula el resultado de la apuesta"
 
     @abstractmethod
     def transferencia(self, billetera: Billetera) -> bool:
-        pass
+        "Transfiere el dinero a la billetera del usuario"

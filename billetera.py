@@ -1,4 +1,6 @@
 """Archivo encargado de la Billetera"""
+from Apuesta import Apuesta
+
 class Billetera:
     """Clase Billetera perteneciente al usuario"""
     def __init__(self, saldo: float):
@@ -7,24 +9,23 @@ class Billetera:
         self._apuestas = []
 
     @property
-    def saldo(self):
+    def saldo(self) -> float:
         """Enseña el saldo actual de la billetera"""
         return self._saldo
-    @saldo.setter
-    def saldo(self):
-        """Valida que el saldo no sea negativo"""
-        if self._saldo <= 0:
-            return "Saldo insuficiente para apostar"
+
+    def actualizar_saldo(self, monto: float):
+        """Aumenta el saldo"""
+        self._saldo += monto
 
     @property
     def movimientos(self):
         """Enseña los movimientos que ha realizado el Usuario con su billetera"""
         return self._movimientos
-    @movimientos.setter
-    def movimientos(self, nuevo_movimiento: str, valor: float):
+
+    def agregar_movimiento(self, nuevo_movimiento: str, valor: float):
         """Agrega un nuevo movimiento al historial de movimientos"""
         if nuevo_movimiento in self._movimientos.items():
-            self._movimientos[nuevo_movimiento] += valor
+            self._movimientos[nuevo_movimiento].append(valor)
         else:
             return "Movimiento invalido"
 
@@ -35,7 +36,7 @@ class Billetera:
     @apuestas.setter
     def apuestas(self, nueva_apuesta: Apuesta):
         """Agrega una nueva apuesta creada en el historial de apuestas"""
-        self._apuestas += nueva_apuesta
+        self._apuestas.append(nueva_apuesta)
 
     def recarga(self, monto: float):
         """Aumenta el saldo al depositar un monto en la billetera"""
