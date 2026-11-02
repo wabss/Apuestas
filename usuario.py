@@ -1,15 +1,15 @@
 """Código para la clase Usuario y su relación con Billetera"""
-from apuestasimple import ApuestaSimple
-from eventos import Evento
+from apuesta_simple import ApuestaSimple
 from billetera import Billetera
-#from apuestacombinada import ApuestaCombinada
+from eventos import Evento
+# from ApuestaCombinada import ApuestaCombinada
 
 class Usuario:
     """Clase encargada de la creación de usuario y sus apuestas"""
     def __init__(self, nombre: str, edad: int, billetera: Billetera):
         self._nombre = nombre
         self._edad = edad
-        self.billetera = billetera
+        self._billetera = billetera # publico
 
     @property
     def nombre(self):
@@ -21,8 +21,13 @@ class Usuario:
         """Enseña la edad del Usuario"""
         return self._edad
 
+    @property
+    def billetera(self):
+        """Enseña algunos datos basicos del Usuario"""
+        return self._billetera
+
     @classmethod
-    def registrar_usuario(cls, nombre: str, billetera: Billetera, edad: int):
+    def registrar_usuario(cls):
         """Registra un usuario con su nombre y edad"""
         nombre = str(input("Ingrese su nombre: "))
         edad = int(input("Ingrese su edad: "))
