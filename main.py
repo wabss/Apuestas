@@ -1,3 +1,7 @@
 """Modulo principal"""
 
-print("hola mundo")
+def prueba():
+    """Waos"""
+    print("Hola")
+
+prueba()
